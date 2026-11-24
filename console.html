@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TEST DATA SET - DU3 Job Console</title>
+<style>
+:root{--red:#E5232A;--ink:#2A2F2F;--grey:#3D4345;--blue:#1F4E79;--line:#D9DCDD;--ok:#1E7B3A;--soft:#F4F5F5}
+*{box-sizing:border-box}body{margin:0;font:16px Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}
+header{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:3px solid var(--red)}
+header b{font-size:20px}header .du3{color:var(--red)}header .who{margin-left:auto;color:var(--grey);font-size:14px}
+main{display:grid;grid-template-columns:minmax(260px,1fr) 2fr;gap:16px;padding:16px;max-width:1300px;margin:0 auto}
+@media(max-width:800px){main{grid-template-columns:1fr}}
+section{border:1px solid var(--line);border-radius:10px;padding:12px}h2{margin:0 0 10px;font-size:18px}
+button{font:700 15px Arial;border:0;border-radius:8px;padding:10px 14px;background:var(--blue);color:#fff;cursor:pointer}
+button.red{background:var(--red)}button.light{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+textarea,input[type=password],input[type=tel]{width:100%;font:16px Arial;padding:8px;border:1px solid var(--line);border-radius:8px}
+textarea{min-height:70px}.p{display:block;padding:4px 0}.note{color:var(--grey);font-size:14px}
+.al{padding:8px 10px;border-radius:8px;color:#fff;margin:0 0 6px}.al a{color:#fff}
+.info{background:#5B6770}.watch{background:#B7791F}.warning{background:#C0262D}.safety{background:#9B0000}
+.m{border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin:0 0 8px}.m.unread{border:2px solid var(--red)}
+.m .h{font-size:13px;color:var(--grey)}.m .t{margin:4px 0}.err{background:#FDECEC;color:#9B0000;padding:8px;border-radius:8px;margin:0 0 8px}
+.tabs{display:flex;gap:6px;max-width:1300px;margin:12px auto 0;padding:0 16px}.tabs button{background:var(--soft);color:var(--ink);border:1px solid var(--line)}.tabs button.on{background:var(--ink);color:#fff}.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin:8px 0 14px}.tile{border:1px solid var(--line);border-radius:10px;padding:10px}.tile .n{font:800 24px Arial;color:var(--ink)}.tile .l{font-size:13px;color:var(--grey)}.tile .s{font-size:12px;color:var(--grey);margin-top:2px}.cols{display:grid;grid-template-columns:1fr 2fr;gap:16px}@media(max-width:800px){.cols{grid-template-columns:1fr}}h3{font-size:15px;margin:10px 0 6px}.cn{border-left:3px solid var(--line);padding:6px 10px;margin:6px 0}.tag{background:#FFF1E6;color:#9A4A00;font-size:12px;padding:1px 6px;border-radius:6px}.cv{padding:4px 8px;font-size:14px;opacity:.55}.rs{border:1px solid;border-radius:6px;padding:1px 6px;font-size:13px;font-weight:600}.sk{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12px}.tools{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 8px}footer{text-align:center;color:var(--grey);font-size:12px;padding:16px}
+</style>
+<style id="tds">.tds-band{position:fixed;top:0;left:0;right:0;z-index:99999;background:#C8202C;color:#fff;font:800 15px Arial,sans-serif;letter-spacing:3px;text-align:center;padding:6px 4px;box-shadow:0 2px 6px rgba(0,0,0,.3)}.tds-band small{font-weight:400;letter-spacing:0;margin-left:8px}body{padding-top:34px!important;border-left:6px solid #C8202C;border-right:6px solid #C8202C}@media print{.tds-band{position:fixed;top:0}.tds-band-b{display:block!important;position:fixed;bottom:0;top:auto}}.tds-band-b{display:none;bottom:0;top:auto}</style></head>
+<body><div class="tds-band" role="alert">TEST DATA SET<small>not live data · never a record</small></div><div class="tds-band tds-band-b">TEST DATA SET</div>
+<header><b><span class="du3">DU3</span> JOB CONSOLE</b><span class="note">job dispatch for DU3 MOBILE crews · TEST DATA SET</span><span class="who" id="who"></span></header>
+<div id="root"></div>
+<footer id="foot"></footer>
+<script>
+var DU3={API:"TEST_EXEC_URL_PENDING",VERSION:"0.4.0-TEST",UPDATED:"2026-11-23 8:10 PM ET",CONTRACT:"MBTA Contract C90CN01"};
+</script><script>/* TEST pages (R-580, R-589; CS-3): talk only to the TEST server. */(function(){var live='AKfycbwnESB0g561XTQwIL6Ny7cc6O2fL3F-KG1ZdipoUOmStskWDB62py6kt7umc1UPs4kR';if(!window.DU3||!DU3.API||DU3.API.indexOf(live)>=0||DU3.API.indexOf('PENDING')>=0){DU3.API='';document.addEventListener('DOMContentLoaded',function(){var d=document.createElement('div');d.style.cssText='margin:60px auto;max-width:520px;padding:20px;border:3px solid #C8202C;font:16px Arial;text-align:center';d.innerHTML='<b>TEST server not connected yet.</b><br>This TEST page will only ever talk to the TEST server. Waiting for its address (board R-589).';document.body.appendChild(d)})}})();</script><script>
+var PIN="",D=null,T=null;
+const $=id=>document.getElementById(id);
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function call(fn,...args){return fetch(DU3.API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({fn:fn,args:args}),redirect:"follow",credentials:"omit",cache:"no-store"}).then(r=>r.text()).then(t=>{let j=null;try{j=JSON.parse(t)}catch(e){throw new Error("The DU3 Cloud server needs its update.")}if(!j||!j.ok)throw new Error((j&&j.error)||"Server error");return j.result})}
+function w(s){return esc(String(s||"").slice(5,16))}
+$("foot").innerHTML=`DU3 Job Console TEST DATA SET for ${esc(DU3.CONTRACT)} · v${esc(DU3.VERSION)} · updated ${esc(DU3.UPDATED)}`;
+function signIn(msg){$("root").innerHTML=`<main style="grid-template-columns:1fr;max-width:420px"><section><h2>Sign in</h2>${msg?`<div class="err">${esc(msg)}</div>`:""}<input type="password" id="pin" inputmode="numeric" autocomplete="off" placeholder="PIN" onkeydown="if(event.key==='Enter')go()"><p></p><button class="red" onclick="go()">Sign in</button><p class="note">The Job Console is for job dispatchers and developers.</p></section></main>`;$("pin").focus()}
+async function go(){PIN=$("pin").value.trim();await load(true)}
+async function load(first){try{D=await call("apiInbox",PIN);if(!D.console&&!D.dev){D=null;PIN="";return signIn("This PIN cannot open the Job Console.")}if(!D.console)VIEW="dev";$("who").textContent=D.me.label;paint();if(first){if(T)clearInterval(T);T=setInterval(()=>{if(!document.querySelector("[id^=rt-]")&&!document.querySelector(".ce"))load(false)},60000)}}catch(e){if(first)signIn(e.message||String(e))}}
+function readLine(m){const r=m.read||{},k=Object.keys(r);return k.map(x=>esc(x)+": "+(r[x]?"read "+w(r[x]):"<b>not read</b>")).join("<br>")}
+var VIEW="dispatch";
+function tabs(){if(!D)return"";const b=(v,l)=>`<button class="${VIEW===v?'on':''}" onclick="VIEW='${v}';paint()">${l}</button>`;const t=(D.console?b('dispatch','Messages')+`<button class="${VIEW==='crew'?'on':''}" onclick="VIEW='crew';CD=null;CEDIT=null;paint()">Crew</button>`:"")+(D.dev?b('dev','Dev'):"");return D.console||D.dev?`<div class="tabs">${t}</div>`:""}
+function paint(){if(D&&!D.console)VIEW="dev";if(VIEW==="dev"&&D&&D.dev)return devPaint();if(VIEW==="crew"&&D&&D.console)return crewPaint();const sel={};document.querySelectorAll("input[data-p]:checked").forEach(c=>sel[c.value]=1);const txt=$("ct")?$("ct").value:"";
+ $("root").innerHTML=tabs()+`<main><div><section><h2>New message</h2><div class="tools"><button class="light" onclick="pick(1)">All</button><button class="light" onclick="pick('RLC')">RLC</button><button class="light" onclick="pick('L3H')">L3H</button><button class="light" onclick="pick(0)">None</button></div>
+ ${D.people.map(p=>`<label class="p"><input type="checkbox" data-p="1" data-c="${esc(p.company)}" value="${esc(p.label)}"${sel[p.label]?" checked":""}> ${esc(p.label)} <span class="note">${esc(p.company)}</span> <button class="light cv" onclick="event.preventDefault();startCall('voice',${esc(JSON.stringify(p.label))})" title="Voice call (coming later)">📞</button><button class="light cv" onclick="event.preventDefault();startCall('video',${esc(JSON.stringify(p.label))})" title="Video call (coming later)">🎥</button></label>`).join("")||`<p class="note">Nobody to send to.</p>`}
+ <textarea id="ct" maxlength="500" placeholder="Message">${esc(txt)}</textarea><p></p><button class="red" onclick="send()">Send</button><div id="sendMsg"></div></section><p></p>
+ <section><h2>Live call</h2><div id="callArea" class="note" style="min-height:120px;border:1px dashed var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px">Voice and video calls with crews are coming later.<br>The call will show here.</div></section><p></p>
+ <section><h2>Alerts on the crews' screens</h2>${D.alerts.length?D.alerts.map(a=>`<div class="al ${a.sev}"><b>${esc(a.sev.toUpperCase())}</b> · ${esc(a.text)} <small>${a.sites.length?esc(a.sites.join(", ")):"all sites"}${a.end?" · until "+w(a.end):""}</small>${a.source?` · <a href="${esc(a.source)}" target="_blank" rel="noopener">source</a>`:""}</div>`).join(""):`<p class="note">No alerts now. Alerts come from the DU3 Resource Calendar.</p>`}</section></div>
+ <section><h2>Messages <button class="light" style="float:right" onclick="load(false)">↻ Refresh</button></h2>${D.messages.length?D.messages.map(m=>`<div class="m${m.unread?" unread":""}"><div class="h">${m.mine?"To "+esc(m.to.join(", ")):"From <b>"+esc(m.from)+"</b>"} · ${w(m.sent)}</div><div class="t">${esc(m.text)}</div>${m.mine?`<div class="h">${readLine(m)}</div>`:""}<button class="light" onclick="rOpen('${esc(m.id)}')">↩ Reply</button><div id="rp-${esc(m.id)}"></div></div>`).join(""):`<p class="note">No messages yet.</p>`}</section></main>`;
+ const ids=D.messages.filter(m=>m.unread).map(m=>m.id);if(ids.length)call("apiRead",PIN,ids).catch(()=>{})}
+function pick(c){document.querySelectorAll("input[data-p]").forEach(x=>x.checked=c===1?true:c===0?false:x.dataset.c===c)}
+async function send(){const to=[...document.querySelectorAll("input[data-p]:checked")].map(x=>x.value),t=$("ct").value.trim();if(!to.length||!t){$("sendMsg").innerHTML=`<div class="err">Pick who to send to and type a message.</div>`;return}
+ try{await call("apiSend",PIN,to,t,"");$("ct").value="";document.querySelectorAll("input[data-p]").forEach(x=>x.checked=false);await load(false)}catch(e){$("sendMsg").innerHTML=`<div class="err">${esc(e.message||e)}</div>`}}
+function rOpen(id){$("rp-"+id).innerHTML=`<textarea id="rt-${id}" maxlength="500" placeholder="Reply"></textarea><button class="red" onclick="rSend('${id}')">Send reply</button>`}
+async function rSend(id){const t=$("rt-"+id).value.trim();if(!t)return;try{await call("apiSend",PIN,[],t,id);await load(false)}catch(e){$("rp-"+id).insertAdjacentHTML("afterbegin",`<div class="err">${esc(e.message||e)}</div>`)}}
+
+
+/* Crew tab (Dan 11/22 5:31 AM ET): who reports to whom; message a person or a whole team. Roster from Devices (Role, Reports to, Crew).
+   Phase C1 (Dan 11/23): skills and certificates; MBTA Rail Safety (1 year) shown on every person, warnings at 60 and 30 days, missing or expired blocks rail yards. */
+var PRESEL={},CD=null,CEDIT=null;
+const RS={ok:["✓","#1E7B3A"],due60:["⚠","#9A4A00"],due30:["⚠","#C8202C"],expired:["✗","#C8202C"],missing:["✗","#C8202C"],unverified:["?","#9A4A00"]};
+function railTxt(r){if(!r)return"";const t={ok:"Rail safety to "+r.expires,due60:"Rail safety expires in "+r.days+" days ("+r.expires+")",due30:"Rail safety expires in "+r.days+" days ("+r.expires+")",expired:"Rail safety EXPIRED "+r.expires+": no rail yards",missing:"No rail safety certificate: no rail yards",unverified:"Rail safety certificate not checked yet: no rail yards"}[r.status]||"";const s=RS[r.status]||RS.missing;return `<span class="rs" style="border-color:${s[1]};color:${s[1]}">${s[0]} ${esc(t)}</span>`}
+function crewEdit(l){CEDIT=l;crewPaint()}
+async function crewSave(l){const m=$("ceMsg");m.textContent="Saving…";try{const i=$("ceI").value.trim(),ph=$("ceP").value.trim(),ck=$("ceC").checked,cur=(CD.people.find(p=>p.label===l)||{}).rail||{};
+ if(i&&(i!==cur.issued||ph!==(cur.photo||"")||ck!==!!cur.verifiedBy))await call("apiCertSet",PIN,l,"MBTA Rail Safety",i,ph,ck);
+ const sk=[...document.querySelectorAll("input[data-sk]:checked")].map(x=>x.value).concat($("ceX").value.split(",").map(s=>s.trim()).filter(Boolean));
+ await call("apiSkillSet",PIN,l,sk);CD=null;CEDIT=null;crewPaint()}catch(e){m.innerHTML=`<span class="err">${esc(e.message||e)}</span>`}}
+function editForm(p){const r=p.rail||{},all=[...new Set((CD.skillList||[]).concat(p.skills))];return `<div class="ce" style="background:var(--soft);border-radius:8px;padding:10px;margin:6px 0">
+ <h3>MBTA Rail Safety certificate</h3><label>Issue date <input id="ceI" type="date" value="${esc(r.issued||"")}"></label> <span class="note">Expiry is worked out: 1 year.</span><br>
+ <label>Certificate photo (Drive link) <input id="ceP" style="width:min(420px,90%)" value="${esc(r.photo||"")}" placeholder="https://drive.google.com/…"></label><br>
+ <label><input id="ceC" type="checkbox" ${r.verifiedBy?"checked":""}> I have looked at the certificate and the name and dates match</label>
+ <h3>Skills</h3><div class="tools">${all.map(s=>`<label class="light" style="border:1px solid var(--line);border-radius:8px;padding:4px 8px"><input type="checkbox" data-sk value="${esc(s)}" ${p.skills.includes(s)?"checked":""}> ${esc(s)}</label>`).join("")}</div>
+ <label>Other skills, comma-separated <input id="ceX" style="width:min(420px,90%)"></label>
+ <div class="tools" style="margin-top:8px"><button class="red" onclick="crewSave(${esc(JSON.stringify(p.label))})">Save</button><button class="light" onclick="CEDIT=null;crewPaint()">Cancel</button><span id="ceMsg" class="note"></span></div></div>`}
+async function crewPaint(){const C=D.crew;if(!C){$("root").innerHTML=tabs()+`<main style="grid-template-columns:1fr"><section><p class="note">The crew view needs the server update (v0.6.3).</p></section></main>`;return}
+ if(!CD){$("root").innerHTML=tabs()+`<main style="grid-template-columns:1fr"><section><p class="note">Loading crew…</p></section></main>`;try{CD=await call("apiCrewDetail",PIN)}catch(e){CD={people:[],err:e.message||String(e)}}if(VIEW!=="crew")return}
+ const det={};(CD.people||[]).forEach(p=>det[p.label]=p);
+ const can={};D.people.forEach(p=>can[p.label]=1);
+ const kids=l=>C.filter(c=>c.reportsTo===l);
+ const team=l=>{let o=[];kids(l).forEach(k=>{o.push(k.label);o=o.concat(team(k.label))});return o};
+ const crews=[...new Set(C.map(c=>c.crew))];
+ const cnt={ok:0,warn:0,block:0};(CD.people||[]).forEach(p=>{const s=p.rail.status;if(s==="ok")cnt.ok++;else if(s==="due60"||s==="due30")cnt.warn++;else cnt.block++});
+ const node=(c,d)=>{const t=team(c.label).filter(x=>can[x]),p=det[c.label]||{skills:[],rail:null};return `<div class="cn" style="margin-left:${d*22}px"><div><b>${esc(c.label)}</b> <span class="note">${esc(c.role||"")}</span>${c.active?"":` <span class="tag">not active yet</span>`}</div>
+ <div style="margin:4px 0">${railTxt(p.rail)} ${p.skills.map(s=>`<span class="sk">${esc(s)}</span>`).join(" ")}</div>
+ <div class="tools">${can[c.label]?`<button class="light" onclick="msgTo(${esc(JSON.stringify([c.label]))})">✉ Message</button>`:""}${t.length?`<button class="light" onclick="msgTo(${esc(JSON.stringify(t))})">✉ Team (${t.length})</button>`:""}${CD.canEdit&&det[c.label]&&CEDIT!==c.label?`<button class="light" onclick="crewEdit(${esc(JSON.stringify(c.label))})">✎ Skills and certificates</button>`:""}</div>${CEDIT===c.label&&det[c.label]?editForm(p):""}</div>`+kids(c.label).map(k=>node(k,d+1)).join("")};
+ $("root").innerHTML=tabs()+`<main style="grid-template-columns:1fr">${CD.err?`<section><div class="err">${esc(CD.err)}</div></section>`:`<section><h2>Rail safety</h2><div class="tiles"><div class="tile"><div class="n">${cnt.ok}</div><div class="l">cleared for rail yards</div></div><div class="tile"><div class="n">${cnt.warn}</div><div class="l">expiring within 60 days</div></div><div class="tile"><div class="n">${cnt.block}</div><div class="l">not cleared (missing, expired or not checked)</div></div></div></section>`}${crews.map(cr=>{const top=C.filter(c=>c.crew===cr&&(!c.reportsTo||!C.some(x=>x.label===c.reportsTo)));return `<section><h2>${esc(cr)}</h2>${top.map(c=>node(c,0)).join("")}<p class="note">People marked "not active yet" have no PIN switched on, so they can't be messaged. Roster: MOBILE Checklists, Devices tab (Role, Reports to, Crew); skills and certificates: Skills and Certificates tabs.${CD.canEdit?"":" Only a job dispatcher can change skills and certificates."}</p></section>`}).join("<p></p>")||`<section><p class="note">No crews yet.</p></section>`}</main>`}
+function msgTo(list){PRESEL={};list.forEach(l=>PRESEL[l]=1);VIEW="dispatch";paint();document.querySelectorAll("input[data-p]").forEach(x=>x.checked=!!PRESEL[x.value]);PRESEL={};const t=$("ct");if(t)t.focus()}
+/* Dev tab (Dan 11/21 11:56 PM ET): developer exchange metrics; only PINs with Dev view = Y (Dan, Pao). Server checks too. */
+function hrs(h){if(h==null)return"–";return h<1?Math.round(h*60)+" min":h<48?h.toFixed(1)+" h":(h/24).toFixed(1)+" days"}
+async function devPaint(){$("root").innerHTML=tabs()+`<main style="grid-template-columns:1fr"><section><p class="note">Loading…</p></section></main>`;
+ let r;try{r=await call("apiDevMetrics",PIN)}catch(e){$("root").innerHTML=tabs()+`<main style="grid-template-columns:1fr"><section><div class="err">${esc(e.message||e)}</div></section></main>`;return}
+ const m=r.metrics;if(!m){$("root").innerHTML=tabs()+`<main style="grid-template-columns:1fr"><section><p class="note">No metrics yet.</p></section></main>`;return}
+ const t=(n,l,s)=>`<div class="tile"><div class="n">${n}</div><div class="l">${l}</div>${s?`<div class="s">${s}</div>`:""}</div>`;
+ const lanes=Object.keys(m.open_by_lane||{}).map(k=>`${esc(k)}: ${m.open_by_lane[k].open} open, oldest ${hrs(m.open_by_lane[k].oldest_h)}`).join("<br>")||"none";
+ const dirs=Object.keys(m.by_direction||{}).map(k=>`${esc(k.replace(">"," → "))}: ${m.by_direction[k]}`).join("<br>")||"none";
+ const ratio=m.fordan_words?Math.round(m.words_exchanged/m.fordan_words):0;
+ $("root").innerHTML=tabs()+`<main style="grid-template-columns:1fr"><section><h2>Developer exchange <span class="note">updated ${esc(r.updated)} · <a href="https://github.com/sst-works/du3-dev-exchange" target="_blank" rel="noopener">open repo</a></span></h2>
+ <div class="tiles">${t(m.waiting_on_dan.count,"waiting on you",m.waiting_on_dan.count?"oldest "+hrs(m.waiting_on_dan.oldest_h):"")}${t(m.messages_7d,"telegrams, last 7 days",m.messages_total+" in all")}${t(hrs(m.first_answer_h_avg),"average first answer",m.close_h_avg!=null?"close "+hrs(m.close_h_avg):"")}${t(m.contracts.open+" / "+m.contracts.merged+" / "+m.contracts.rejected,"contracts open / agreed / rejected","")}${t(m.readback_mismatches+" of "+m.readbacks,"read-back mismatches","")}${t(ratio?ratio+" : 1":"–","words boiled down for you",m.words_exchanged+" → "+m.fordan_words)}${t(m.untagged,"messages without a telegram header","should be 0")}</div>
+ <div class="cols"><div><h3>Waiting on you</h3>${m.waiting_on_dan.items.length?m.waiting_on_dan.items.map(i=>`<div class="m"><a href="https://github.com/sst-works/du3-dev-exchange/issues/${i.ref}" target="_blank" rel="noopener">#${i.ref}</a> ${esc(i.title)}</div>`).join(""):`<p class="note">Nothing.</p>`}
+ <h3>Open by lane</h3><p>${lanes}</p><h3>Who is talking</h3><p>${dirs}</p></div>
+ <div><h3>Latest, in plain English</h3>${(m.feed||[]).map(f=>`<div class="m"><div class="h">${esc(String(f.when).slice(5,16).replace("T"," "))} UTC · ${esc(f.from)} → ${esc(f.to)} · ${esc(f.type)} · <a href="https://github.com/sst-works/du3-dev-exchange/issues/${f.ref}" target="_blank" rel="noopener">#${f.ref}</a></div><div class="t">${esc(f.fordan)}</div></div>`).join("")||`<p class="note">No telegrams yet.</p>`}</div></div></section></main>`}
+/* Voice and video (later phase): needs the DU3 field phone app on the crew's phone. Hook kept. */
+function startCall(kind,who){const a=$("callArea");if(a)a.innerHTML=(kind==="video"?"Video":"Voice")+" call to "+esc(who)+": coming later. For now, call by phone."}
+signIn();
+</script>
+</body>
+</html>
